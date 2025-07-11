@@ -18,7 +18,7 @@ function Login() {
   useEffect(() => {
     const subs = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        nav("/home") // Redirect to home if already logged in
+        nav("/SignseSense-Collection/home") // Redirect to home if already logged in
       }
       setIsLoading(false) // Auth check complete
     })

@@ -192,7 +192,7 @@ function AddSign() {
   return (
     <div className="add-sign-container">
       <div className="add-sign-header">
-        <Link to="/home" className="back-link">
+        <Link to="/SignseSense-Collection/home" className="back-link">
           <span className="back-arrow">←</span> Back to Home
         </Link>
         <h1 className="page-title">Add New Traffic Sign</h1>

@@ -46,7 +46,7 @@ function Homepage() {
 
     const subs = onAuthStateChanged(auth, (user) => {
       if (!user) {
-        nav("/") // Redirect to login if not authenticated
+        nav("/SignseSense-Collection") // Redirect to login if not authenticated
       } else {
         setIsLoggedIn(true)
         getSigns() // Fetch signs only if logged in
@@ -63,7 +63,7 @@ function Homepage() {
   const handleSignOut = async () => {
     try {
       await signOut(auth)
-      nav("/")
+      nav("/SignseSense-Collection")
     } catch (error) {
       console.error("Error signing out:", error)
       // Optionally show an error message
@@ -101,7 +101,7 @@ function Homepage() {
             <h1 className="page-title">Traffic Sign Library</h1>
             <div className="header-actions">
               {isLoggedIn && (
-                <Link to="/addsign" className="add-sign-btn">
+                <Link to="/SignseSense-Collection/addsign" className="add-sign-btn">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"

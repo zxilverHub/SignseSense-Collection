@@ -6,18 +6,18 @@ import { Login, Homepage, NotFoundPage, AddSign } from './importer.jsx'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/SignseSense-Collection',
     element: <Login />,
     errorElement: <NotFoundPage />
   },
 
   {
-    path: '/home',
+    path: '/SignseSense-Collection/home',
     element: <Homepage />
   },
 
   {
-    path: '/addsign',
+    path: '/SignseSense-Collection/addsign',
     element: <AddSign />
   }
 ])
