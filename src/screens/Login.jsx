@@ -67,7 +67,7 @@ function Login() {
       ) : (
         <div className="login-card">
           <h1 className="login-title">Welcome Back!</h1>
-          <p className="login-subtitle">Sign in to manage your traffic signs.</p>
+          <p className="login-subtitle">Sign in to manage your signs.</p>
 
           <div className="input-group">
             <label htmlFor="email-input" className="input-label">
