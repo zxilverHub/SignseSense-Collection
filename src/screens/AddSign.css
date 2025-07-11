@@ -4,12 +4,6 @@
   padding: 0;
 }
 
-body,
-html {
-  height: 100%;
-  overflow: hidden; /* Prevent body scroll on desktop */
-}
-
 .add-sign-container {
   height: 100vh;
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
