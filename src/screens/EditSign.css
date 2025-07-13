@@ -1,0 +1,726 @@
+/* Global Resets - These are generally fine to be global */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f8fafc;
+  color: #1f2937;
+}
+
+/* All styles below are now scoped to the .edit-sign-container */
+.edit-sign-container {
+  min-height: 100vh;
+  background: #f8fafc;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Loading State */
+.edit-sign-container .loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 40px;
+}
+
+.edit-sign-container .loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e2e8f0;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 24px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.edit-sign-container .loading-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 8px 0;
+}
+
+.edit-sign-container .loading-subtitle {
+  color: #6b7280;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Professional Header */
+.edit-sign-container .professional-header {
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.edit-sign-container .header-content {
+  flex: 1;
+}
+
+.edit-sign-container .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.edit-sign-container .breadcrumb-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.edit-sign-container .breadcrumb-link:hover {
+  color: #2563eb;
+}
+
+.edit-sign-container .breadcrumb-current {
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.edit-sign-container .header-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edit-sign-container .professional-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.edit-sign-container .professional-subtitle {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 400;
+  margin: 0;
+}
+
+.edit-sign-container .header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.edit-sign-container .delete-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-sign-container .delete-btn:hover:not(:disabled) {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+.edit-sign-container .delete-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.edit-sign-container .cancel-btn {
+  padding: 10px 20px;
+  background: white;
+  color: #64748b;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.edit-sign-container .cancel-btn:hover {
+  background: #f8fafc;
+  border-color: #9ca3af;
+  color: #374151;
+}
+
+/* Main Content */
+.edit-sign-container .main-content {
+  flex: 1;
+  display: flex;
+  gap: 32px;
+  padding: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Image Section */
+.edit-sign-container .image-section {
+  flex: 0 0 400px;
+}
+
+.edit-sign-container .image-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  position: sticky;
+  top: 32px;
+}
+
+.edit-sign-container .card-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-sign-container .card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.edit-sign-container .required-indicator {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.edit-sign-container .optional-indicator {
+  background: #f0fdf4;
+  color: #16a34a;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.edit-sign-container .image-upload-area {
+  padding: 24px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-sign-container .file-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.edit-sign-container .upload-zone {
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-sign-container .upload-zone:hover {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.edit-sign-container .upload-content {
+  text-align: center;
+  padding: 32px;
+}
+
+.edit-sign-container .upload-icon {
+  margin-bottom: 16px;
+  color: #94a3b8;
+}
+
+.edit-sign-container .upload-content h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 8px 0;
+}
+
+.edit-sign-container .upload-content p {
+  color: #6b7280;
+  margin: 0 0 16px 0;
+  font-size: 14px;
+}
+
+.edit-sign-container .file-formats {
+  background: #e2e8f0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #64748b;
+  display: inline-block;
+}
+
+.edit-sign-container .image-preview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.edit-sign-container .preview-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
+}
+
+.edit-sign-container .image-overlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.edit-sign-container .change-image-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-sign-container .change-image-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.edit-sign-container .image-details {
+  text-align: center;
+  background: #f8fafc;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  width: 100%;
+}
+
+.edit-sign-container .image-name {
+  font-weight: 500;
+  color: #374151;
+  margin: 0 0 4px 0;
+  font-size: 14px;
+}
+
+.edit-sign-container .image-size {
+  color: #6b7280;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* Form Section */
+.edit-sign-container .form-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.edit-sign-container .form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.edit-sign-container .form-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.edit-sign-container .card-content {
+  padding: 24px;
+}
+
+.edit-sign-container .form-group {
+  margin-bottom: 20px;
+}
+
+.edit-sign-container .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.edit-sign-container .form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.edit-sign-container .required {
+  color: #dc2626;
+}
+
+.edit-sign-container .form-input,
+.edit-sign-container .form-textarea,
+.edit-sign-container .form-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  background: white;
+  color: #1f2937;
+  font-family: inherit;
+}
+
+.edit-sign-container .form-input:focus,
+.edit-sign-container .form-textarea:focus,
+.edit-sign-container .form-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.edit-sign-container .form-input::placeholder,
+.edit-sign-container .form-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.edit-sign-container .form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.edit-sign-container .form-select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%236B7280" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+/* Form Actions */
+.edit-sign-container .form-actions {
+  margin-top: 8px;
+}
+
+.edit-sign-container .submit-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.edit-sign-container .submit-btn:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.edit-sign-container .submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.edit-sign-container .submit-btn.loading {
+  background: #6b7280;
+}
+
+/* Delete Modal */
+.edit-sign-container .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.edit-sign-container .modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.edit-sign-container .modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-sign-container .modal-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.edit-sign-container .modal-close {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.edit-sign-container .modal-close:hover:not(:disabled) {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.edit-sign-container .modal-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.edit-sign-container .modal-body {
+  padding: 24px;
+  text-align: center;
+}
+
+.edit-sign-container .warning-icon {
+  margin-bottom: 16px;
+  color: #f59e0b;
+  display: flex;
+  justify-content: center;
+}
+
+.edit-sign-container .warning-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+}
+
+.edit-sign-container .warning-message {
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.edit-sign-container .modal-actions {
+  padding: 20px 24px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.edit-sign-container .cancel-modal-btn {
+  padding: 10px 20px;
+  background: white;
+  color: #64748b;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-sign-container .cancel-modal-btn:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #9ca3af;
+  color: #374151;
+}
+
+.edit-sign-container .cancel-modal-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.edit-sign-container .delete-modal-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-sign-container .delete-modal-btn:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.edit-sign-container .delete-modal-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.edit-sign-container .delete-modal-btn.loading {
+  background: #6b7280;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .edit-sign-container .main-content {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .edit-sign-container .image-section {
+    flex: none;
+  }
+
+  .edit-sign-container .image-card {
+    position: static;
+  }
+
+  .edit-sign-container .professional-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .edit-sign-container .header-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .edit-sign-container .main-content {
+    padding: 20px;
+  }
+
+  .edit-sign-container .professional-header {
+    padding: 20px;
+  }
+
+  .edit-sign-container .professional-title {
+    font-size: 1.5rem;
+  }
+
+  .edit-sign-container .breadcrumb {
+    flex-wrap: wrap;
+  }
+
+  .edit-sign-container .header-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .edit-sign-container .delete-btn,
+  .edit-sign-container .cancel-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .edit-sign-container .modal-actions {
+    flex-direction: column;
+  }
+
+  .edit-sign-container .cancel-modal-btn,
+  .edit-sign-container .delete-modal-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .edit-sign-container .main-content {
+    padding: 16px;
+  }
+
+  .edit-sign-container .professional-header {
+    padding: 16px;
+  }
+
+  .edit-sign-container .card-content {
+    padding: 20px;
+  }
+
+  .edit-sign-container .image-upload-area {
+    padding: 20px;
+    min-height: 300px;
+  }
+
+  .edit-sign-container .upload-content {
+    padding: 24px;
+  }
+
+  .edit-sign-container .modal-overlay {
+    padding: 16px;
+  }
+}
