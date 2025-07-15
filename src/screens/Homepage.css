@@ -376,9 +376,13 @@ html {
   overflow: hidden;
   transition: all 0.2s ease;
   cursor: pointer;
-  /* Default for desktop: 2 columns with 24px gap */
-  flex: 0 0 calc(30% - 12px); /* (100% - 1 * gap) / 2 */
-  max-width: calc(30% - 12px);
+  /* --- MODIFIED STYLES BELOW --- */
+  /* Allow cards to grow and shrink, with a preferred basis of 300px */
+  flex: 1 1 300px;
+  /* Set a maximum width for individual cards to prevent them from becoming too wide */
+  /* This ensures that if there are only 1 or 2 cards, they don't stretch across the entire container */
+  max-width: 380px; /* Adjust this value as needed for your desired max card width */
+  /* --- MODIFIED STYLES ABOVE --- */
 }
 
 .homepage-wrapper .sign-card:hover {
